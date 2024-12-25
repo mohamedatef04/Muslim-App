@@ -1,0 +1,212 @@
+name: quran_app
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  audioplayers: ^6.1.0
+  clipboard: ^0.1.3
+  cupertino_icons: ^1.0.8
+  curved_navigation_bar: ^1.0.6
+  dio: ^5.7.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+  flutter_launcher_icons: ^0.14.2
+  flutter_native_splash: ^2.4.3
+  flutter_screenutil: ^5.9.3
+  go_router: ^14.6.2
+  google_fonts: ^6.2.1
+  just_audio: ^0.9.42
+  provider: ^6.1.2
+  quickalert: ^1.1.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#ffffff" # You can use a color or image for the background
+  adaptive_icon_foreground: "assets/images/app icon.png" # For adaptive icons on Android
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+# The following section is specific to Flutter packages.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - assets/Quran_json/surainformation/
+    - assets/Quran_json/suracontent/
+    - assets/Quran_json/
+    - assets/Ahadeeth/
+    - assets/azkar/
+    - assets/Quran_json/audio/001/
+    - assets/Quran_json/audio/002/
+    - assets/Quran_json/audio/003/
+    - assets/Quran_json/audio/004/
+    - assets/Quran_json/audio/005/
+    - assets/Quran_json/audio/006/
+    - assets/Quran_json/audio/007/
+    - assets/Quran_json/audio/008/
+    - assets/Quran_json/audio/009/
+    - assets/Quran_json/audio/010/
+    - assets/Quran_json/audio/011/
+    - assets/Quran_json/audio/012/
+    - assets/Quran_json/audio/013/
+    - assets/Quran_json/audio/014/
+    - assets/Quran_json/audio/015/
+    - assets/Quran_json/audio/016/
+    - assets/Quran_json/audio/017/
+    - assets/Quran_json/audio/018/
+    - assets/Quran_json/audio/019/
+    - assets/Quran_json/audio/020/
+    - assets/Quran_json/audio/021/
+    - assets/Quran_json/audio/022/
+    - assets/Quran_json/audio/023/
+    - assets/Quran_json/audio/024/
+    - assets/Quran_json/audio/025/
+    - assets/Quran_json/audio/026/
+    - assets/Quran_json/audio/027/
+    - assets/Quran_json/audio/028/
+    - assets/Quran_json/audio/029/
+    - assets/Quran_json/audio/030/
+    - assets/Quran_json/audio/031/
+    - assets/Quran_json/audio/032/
+    - assets/Quran_json/audio/033/
+    - assets/Quran_json/audio/034/
+    - assets/Quran_json/audio/035/
+    - assets/Quran_json/audio/036/
+    - assets/Quran_json/audio/037/
+    - assets/Quran_json/audio/038/
+    - assets/Quran_json/audio/039/
+    - assets/Quran_json/audio/040/
+    - assets/Quran_json/audio/041/
+    - assets/Quran_json/audio/042/
+    - assets/Quran_json/audio/043/
+    - assets/Quran_json/audio/044/
+    - assets/Quran_json/audio/045/
+    - assets/Quran_json/audio/046/
+    - assets/Quran_json/audio/047/
+    - assets/Quran_json/audio/048/
+    - assets/Quran_json/audio/049/
+    - assets/Quran_json/audio/050/
+    - assets/Quran_json/audio/051/
+    - assets/Quran_json/audio/052/
+    - assets/Quran_json/audio/053/
+    - assets/Quran_json/audio/054/
+    - assets/Quran_json/audio/055/
+    - assets/Quran_json/audio/056/
+    - assets/Quran_json/audio/057/
+    - assets/Quran_json/audio/058/
+    - assets/Quran_json/audio/059/
+    - assets/Quran_json/audio/060/
+    - assets/Quran_json/audio/061/
+    - assets/Quran_json/audio/062/
+    - assets/Quran_json/audio/063/
+    - assets/Quran_json/audio/064/
+    - assets/Quran_json/audio/065/
+    - assets/Quran_json/audio/066/
+    - assets/Quran_json/audio/067/
+    - assets/Quran_json/audio/068/
+    - assets/Quran_json/audio/069/
+    - assets/Quran_json/audio/070/
+    - assets/Quran_json/audio/071/
+    - assets/Quran_json/audio/072/
+    - assets/Quran_json/audio/073/
+    - assets/Quran_json/audio/074/
+    - assets/Quran_json/audio/075/
+    - assets/Quran_json/audio/076/
+    - assets/Quran_json/audio/077/
+    - assets/Quran_json/audio/078/
+    - assets/Quran_json/audio/079/
+    - assets/Quran_json/audio/080/
+    - assets/Quran_json/audio/081/
+    - assets/Quran_json/audio/082/
+    - assets/Quran_json/audio/083/
+    - assets/Quran_json/audio/084/
+    - assets/Quran_json/audio/085/
+    - assets/Quran_json/audio/086/
+    - assets/Quran_json/audio/087/
+    - assets/Quran_json/audio/088/
+    - assets/Quran_json/audio/089/
+    - assets/Quran_json/audio/090/
+    - assets/Quran_json/audio/091/
+    - assets/Quran_json/audio/092/
+    - assets/Quran_json/audio/093/
+    - assets/Quran_json/audio/094/
+    - assets/Quran_json/audio/095/
+    - assets/Quran_json/audio/096/
+    - assets/Quran_json/audio/097/
+    - assets/Quran_json/audio/098/
+    - assets/Quran_json/audio/099/
+    - assets/Quran_json/audio/100/
+    - assets/Quran_json/audio/101/
+    - assets/Quran_json/audio/102/
+    - assets/Quran_json/audio/103/
+    - assets/Quran_json/audio/104/
+    - assets/Quran_json/audio/105/
+    - assets/Quran_json/audio/106/
+    - assets/Quran_json/audio/107/
+    - assets/Quran_json/audio/108/
+    - assets/Quran_json/audio/109/
+    - assets/Quran_json/audio/110/
+    - assets/Quran_json/audio/111/
+    - assets/Quran_json/audio/112/
+    - assets/Quran_json/audio/113/
+    - assets/Quran_json/audio/114/
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package

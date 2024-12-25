@@ -1,0 +1,15 @@
+flutter_native_splash:
+  color: "#040C23"
+  image: assets/images/mosque.png
+  color_dark: "#040C23"
+  image_dark: assets/images/mosque.png
+
+  android_12:
+    image: assets/images/android 12 e.png
+    color: "#040C23"
+    color_dark: "#040C23"
+    image_dark: assets/images/android 12 e dark.png
+
+  android: true
+  ios: true
+  web: true
