@@ -64,7 +64,7 @@
 
 2. Cd Over
 ```
-   cd auvnet_internship_task
+   cd muslim_app
 ```
 
 3. Run Pub
