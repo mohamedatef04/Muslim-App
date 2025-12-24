@@ -9,3 +9,4 @@ class AhadeethView extends StatelessWidget {
     return AhadeethViewBody();
   }
 }
+

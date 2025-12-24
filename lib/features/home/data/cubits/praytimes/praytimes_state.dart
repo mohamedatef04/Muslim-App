@@ -9,3 +9,4 @@ class PraytimesLoadedState extends PraytimesState {}
 class PraytimesLoadingState extends PraytimesState {}
 
 class PraytimesFailureState extends PraytimesState {}
+

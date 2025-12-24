@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quran_app/features/home/data/models/month_day_model.dart';
 import 'package:quran_app/features/home/presentation/widgets/custom_pray_time_row.dart';
 
@@ -29,30 +29,24 @@ class _CustomPrayTimesViewContainerState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 50.h),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Color.fromARGB(62, 135, 62, 213),
+          borderRadius: BorderRadius.circular(15.r),
+          color: const Color.fromARGB(62, 135, 62, 213),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 15),
+          padding: EdgeInsets.only(top: 15.h),
           child: Column(
             children: [
               Text(
                 '${widget.monthDayModel.weakDayEn} - ${widget.monthDayModel.weakDayAr}',
-                style: GoogleFonts.amiri(
-                  textStyle:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
               ),
               Text(
                 widget.monthDayModel.date,
-                style: GoogleFonts.amiri(
-                  textStyle:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
               ),
               CustomPrayTimeRow(
                 image: images[0],

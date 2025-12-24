@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 
 class CustomHeadText extends StatelessWidget {
   const CustomHeadText({
@@ -9,13 +10,13 @@ class CustomHeadText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
       child: Text(
-        'Muslim',
-        style: GoogleFonts.amiri(
-          textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-        ),
+        AppStrings.muslim,
+        style: TextStyle(
+            fontSize: 24.sp, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
   }
 }
+

@@ -16,3 +16,4 @@ class SurahDetailsView extends StatelessWidget {
     );
   }
 }
+

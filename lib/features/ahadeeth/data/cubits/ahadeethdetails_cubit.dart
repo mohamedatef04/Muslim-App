@@ -19,3 +19,4 @@ class AhadeethdetailsCubit extends Cubit<AhadeethdetailsState> {
     }
   }
 }
+

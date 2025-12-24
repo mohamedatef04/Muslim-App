@@ -9,3 +9,4 @@ class AzkarView extends StatelessWidget {
     return const AzkarViewBody();
   }
 }
+

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/core/constants.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 import 'package:quran_app/features/Quran/cubits/surah/surahinformation/surahinformation_cubit.dart';
 import 'package:quran_app/features/Quran/presentation/widgets/custom_head_text.dart';
 import 'package:quran_app/features/Quran/presentation/widgets/custom_image_container.dart';
@@ -29,12 +30,11 @@ class _HomeViewBodyState extends State<QuranViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: kPrimaryColor,
           title: Text(
-            'Quran - القران',
-            style: GoogleFonts.amiri(
-              textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
+            AppStrings.quran,
+            style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           actions: [
@@ -44,7 +44,7 @@ class _HomeViewBodyState extends State<QuranViewBody> {
                   '/SearchView',
                 );
               },
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
             ),
           ],
         ),
@@ -54,26 +54,26 @@ class _HomeViewBodyState extends State<QuranViewBody> {
               width: double.infinity,
               child: CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: CustomHeadText(),
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: CustomNextText(),
                   ),
                   SliverToBoxAdapter(
                     child: SizedBox(
-                      height: 20,
+                      height: 20.h,
                     ),
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: CustomImageContainer(),
                   ),
                   SliverToBoxAdapter(
                     child: SizedBox(
-                      height: 10,
+                      height: 10.h,
                     ),
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: CustomListView(),
                   ),
                 ],
@@ -83,3 +83,4 @@ class _HomeViewBodyState extends State<QuranViewBody> {
         ));
   }
 }
+

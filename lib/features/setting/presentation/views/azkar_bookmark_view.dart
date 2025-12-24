@@ -9,3 +9,4 @@ class AzkarBookmarkView extends StatelessWidget {
     return const AzkarBookmarkViewBody();
   }
 }
+

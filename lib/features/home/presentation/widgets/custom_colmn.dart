@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomColmn extends StatelessWidget {
   const CustomColmn({
@@ -19,11 +19,11 @@ class CustomColmn extends StatelessWidget {
         GestureDetector(
           onTap: onTap,
           child: Container(
-            width: 45,
-            height: 45,
+            width: 45.w,
+            height: 45.h,
             decoration: BoxDecoration(
-              color: Color.fromARGB(88, 135, 62, 213),
-              borderRadius: BorderRadius.circular(30),
+              color: const Color.fromARGB(88, 135, 62, 213),
+              borderRadius: BorderRadius.circular(30.r),
               image: DecorationImage(
                 image: AssetImage(
                   image,
@@ -35,9 +35,7 @@ class CustomColmn extends StatelessWidget {
         ),
         Text(
           text,
-          style: GoogleFonts.amiri(
-            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
         ),
       ],
     );

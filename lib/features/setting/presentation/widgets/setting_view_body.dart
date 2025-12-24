@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/core/constants.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 
 class SettingViewBody extends StatelessWidget {
   const SettingViewBody({super.key});
@@ -10,31 +11,32 @@ class SettingViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kPrimaryColor,
         title: Text(
-          'Settings',
-          style: GoogleFonts.amiri(textStyle: TextStyle(color: Colors.white)),
+          AppStrings.settings,
+          style: TextStyle(color: Colors.white, fontSize: 20.sp),
         ),
       ),
       body: SizedBox(
         width: double.infinity,
         child: Column(
-          spacing: 5,
           children: [
+            SizedBox(height: 5.h),
             CustomBookmarkRow(
-              category: 'BookMarks(Quran) - (قران)المفضله',
+              category: AppStrings.quranBookmarks,
               onPressed: () {
                 GoRouter.of(context).push('/QuranBookmarkView');
               },
             ),
             CustomBookmarkRow(
-              category: 'BookMarks(Hadeeth) - (احاديث)المفضله',
+              category: AppStrings.hadeethBookmarks,
               onPressed: () {
                 GoRouter.of(context).push('/HadeethBookmarkView');
               },
             ),
             CustomBookmarkRow(
-              category: 'BookMarks(Quran) - (اذكار)المفضله',
+              category: AppStrings.azkarBookmarks,
               onPressed: () {
                 GoRouter.of(context).push('/AzkarBookmarkView');
               },
@@ -59,37 +61,34 @@ class CustomBookmarkRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 10,
       children: [
+        SizedBox(height: 10.h),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Row(
             children: [
               Image(
-                image: AssetImage(
+                image: const AssetImage(
                   'assets/images/folder.png',
                 ),
-                width: 40,
+                width: 40.w,
               ),
-              Spacer(
-                flex: 1,
-              ),
-              Text(
-                category,
-                style: GoogleFonts.amiri(
-                  textStyle: TextStyle(fontSize: 18),
+              SizedBox(width: 15.w),
+              Expanded(
+                child: Text(
+                  category,
+                  style: TextStyle(fontSize: 18.sp),
                 ),
               ),
-              Spacer(
-                flex: 5,
-              ),
               IconButton(
-                  onPressed: onPressed, icon: Icon(Icons.arrow_forward_ios))
+                  onPressed: onPressed,
+                  icon: const Icon(Icons.arrow_forward_ios))
             ],
           ),
         ),
-        Divider(),
+        const Divider(),
       ],
     );
   }
 }
+

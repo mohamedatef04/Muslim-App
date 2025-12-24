@@ -21,3 +21,4 @@ class SurahDetailsServices {
     return ayas;
   }
 }
+

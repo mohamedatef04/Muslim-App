@@ -9,3 +9,4 @@ class HadeethBookmarkView extends StatelessWidget {
     return const HadeethBookmarkViewBody();
   }
 }
+

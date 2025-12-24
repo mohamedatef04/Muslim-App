@@ -10,3 +10,4 @@ class SearchSuccessState extends SearchState {}
 class SearchFailureState extends SearchState {}
 
 class SearchLoadingState extends SearchState {}
+

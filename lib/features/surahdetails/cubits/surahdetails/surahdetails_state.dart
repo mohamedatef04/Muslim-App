@@ -10,3 +10,4 @@ class SurahdetailsLoadingState extends SurahdetailsState {}
 class SurahdetailsLoadedState extends SurahdetailsState {}
 
 class SurahdetailsFailureState extends SurahdetailsState {}
+

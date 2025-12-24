@@ -8,3 +8,4 @@ class AhadeethCategoryModel {
       required this.categoryEn,
       required this.categoryAr});
 }
+

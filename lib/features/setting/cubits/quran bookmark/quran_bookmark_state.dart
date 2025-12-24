@@ -10,3 +10,4 @@ class QuranBookmarkUpdatedState extends QuranBookmarkState {
 
   QuranBookmarkUpdatedState(this.details);
 }
+

@@ -23,3 +23,4 @@ class HadeethDetailsService {
     return ahadeeth;
   }
 }
+

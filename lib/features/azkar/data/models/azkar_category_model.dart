@@ -8,3 +8,4 @@ class AzkarCategoryModel {
       required this.categoryEn,
       required this.categoryAr});
 }
+

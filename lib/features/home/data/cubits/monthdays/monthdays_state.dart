@@ -10,3 +10,4 @@ class MonthdaysLoadedState extends MonthdaysState {}
 class MonthdaysLoadingState extends MonthdaysState {}
 
 class MonthdaysFailureState extends MonthdaysState {}
+

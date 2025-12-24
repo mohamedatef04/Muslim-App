@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/features/azkar/data/models/azkar_category_model.dart';
 
 class AzkarListViewItem extends StatelessWidget {
@@ -23,15 +22,13 @@ class AzkarListViewItem extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: Column(
-            spacing: 4,
             children: [
               Row(
-                spacing: 15,
                 children: [
                   Container(
                     width: 36,
                     height: 36,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/muslim (1) 1.png'),
                           fit: BoxFit.fill),
@@ -40,11 +37,12 @@ class AzkarListViewItem extends StatelessWidget {
                       child: Text(azkarCategoryModel.categoryNumber.toString()),
                     ),
                   ),
-                  Text(
-                    azkarCategoryModel.categoryEn,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.amiri(
-                      textStyle: TextStyle(
+                  const SizedBox(width: 15),
+                  Expanded(
+                    child: Text(
+                      azkarCategoryModel.categoryEn,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
                         fontSize: 19,
                         color: Colors.white,
                       ),
@@ -52,6 +50,7 @@ class AzkarListViewItem extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 4),
               Padding(
                 padding: const EdgeInsets.only(right: 30),
                 child: SizedBox(
@@ -60,17 +59,15 @@ class AzkarListViewItem extends StatelessWidget {
                     azkarCategoryModel.categoryAr,
                     textAlign: TextAlign.end,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.amiri(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffA44AFF),
-                      ),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xffA44AFF),
                     ),
                   ),
                 ),
               ),
-              Divider(),
+              const Divider(),
             ],
           ),
         ),

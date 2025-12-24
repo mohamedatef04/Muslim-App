@@ -10,3 +10,4 @@ class AhadeethdetailsLoadedState extends AhadeethdetailsState {}
 class AhadeethdetailsLoadingState extends AhadeethdetailsState {}
 
 class AhadeethdetailsFailureState extends AhadeethdetailsState {}
+

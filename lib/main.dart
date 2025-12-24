@@ -10,6 +10,8 @@ import 'package:quran_app/providers/askar_saved_item.dart';
 import 'package:quran_app/providers/hadeeth_saved_item.dart';
 import 'package:quran_app/providers/quran_saved_item.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const QuranApp());
@@ -39,15 +41,30 @@ class QuranApp extends StatelessWidget {
           ),
         ],
         child: ScreenUtilInit(
-          designSize: Size(375, 812),
-          child: MaterialApp.router(
-            routerConfig: AppRouter().router,
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(brightness: Brightness.dark)
-                .copyWith(scaffoldBackgroundColor: kPrimaryColor),
-          ),
+          designSize: const Size(375, 812),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) {
+            return MaterialApp.router(
+              routerConfig: AppRouter().router,
+              debugShowCheckedModeBanner: false,
+              locale: const Locale('ar'),
+              supportedLocales: const [Locale('ar')],
+              localizationsDelegates: const [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              theme: ThemeData(
+                brightness: Brightness.dark,
+                useMaterial3: true,
+                fontFamily: 'Amiri',
+              ).copyWith(scaffoldBackgroundColor: kPrimaryColor),
+            );
+          },
         ),
       ),
     );
   }
 }
+

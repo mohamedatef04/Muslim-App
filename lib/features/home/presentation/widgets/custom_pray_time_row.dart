@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomPrayTimeRow extends StatelessWidget {
   const CustomPrayTimeRow({
@@ -17,45 +17,43 @@ class CustomPrayTimeRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 7.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Image.asset(
             image,
-            width: 50,
+            width: 50.w,
           ),
-          Spacer(
-            flex: 1,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '$prayEn - ',
-                style: GoogleFonts.amiri(
-                  textStyle:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          SizedBox(width: 8.w),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Text(
+                    '$prayEn - ',
+                    style:
+                        TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              Text(
-                prayAr,
-                style: GoogleFonts.amiri(
-                  textStyle:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Flexible(
+                  child: Text(
+                    prayAr,
+                    style:
+                        TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Spacer(
-            flex: 6,
-          ),
+          SizedBox(width: 8.w),
           Text(
             date,
-            style: GoogleFonts.amiri(
-              textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-          )
+            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     );

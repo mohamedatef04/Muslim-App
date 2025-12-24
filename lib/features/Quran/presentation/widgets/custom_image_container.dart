@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 
 class CustomImageContainer extends StatelessWidget {
   const CustomImageContainer({
@@ -10,13 +11,20 @@ class CustomImageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: Container(
           width: double.infinity,
-          height: 150,
+          height: 155.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            image: DecorationImage(
+            borderRadius: BorderRadius.circular(20.r),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xffA44AFF).withOpacity(0.3),
+                blurRadius: 20,
+                offset: const Offset(0, 10),
+              ),
+            ],
+            image: const DecorationImage(
               image: AssetImage(
                 'assets/images/Frame 32 (2).png',
               ),
@@ -24,12 +32,22 @@ class CustomImageContainer extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 35, left: 10),
-            child: Text(
-              'Learn Quran\n(Read and Listen)\nwith audio Features.',
-              style: GoogleFonts.amiri(
-                textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppStrings.learnQuran,
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    height: 1.3,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -37,3 +55,4 @@ class CustomImageContainer extends StatelessWidget {
     );
   }
 }
+

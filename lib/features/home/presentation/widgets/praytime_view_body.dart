@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 import 'package:quran_app/features/home/data/cubits/monthdays/monthdays_cubit.dart';
 import 'package:quran_app/features/home/presentation/widgets/custom_nav_bar.dart';
 import 'package:quran_app/features/home/presentation/widgets/custom_pray_time_view_container.dart';
@@ -12,7 +13,7 @@ class PraytimeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 80),
+        padding: EdgeInsets.only(top: 80.h),
         child: Column(
           children: [
             SizedBox(
@@ -21,18 +22,9 @@ class PraytimeViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Prayer times - ',
-                    style: GoogleFonts.amiri(
-                      textStyle:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Text(
-                    'مواقيت الصلاه',
-                    style: GoogleFonts.amiri(
-                      textStyle:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
+                    AppStrings.prayerTimes,
+                    style:
+                        TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -46,36 +38,35 @@ class PraytimeViewBody extends StatelessWidget {
                 } else if (state is MonthdaysFailureState) {
                   return Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 50.h),
                     child: Container(
                       width: double.infinity,
-                      height: 400,
+                      height: 400.h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Color.fromARGB(62, 135, 62, 213),
+                        borderRadius: BorderRadius.circular(15.r),
+                        color: const Color.fromARGB(62, 135, 62, 213),
                       ),
                       child: Center(
                         child: Text(
-                          'Oops Conection Error',
-                          style: GoogleFonts.amiri(
-                            textStyle: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
+                          AppStrings.connectionError,
+                          style: TextStyle(
+                              fontSize: 20.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   );
                 } else {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
               },
             ),
-            CustomNavBar()
+            const CustomNavBar()
           ],
         ),
       ),
     );
   }
 }
+

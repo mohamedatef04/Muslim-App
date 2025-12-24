@@ -10,3 +10,4 @@ class AzkarContentSuccessState extends AzkarcontentState {}
 class AzkarContentFailureState extends AzkarcontentState {}
 
 class AzkarContentLoadingState extends AzkarcontentState {}
+

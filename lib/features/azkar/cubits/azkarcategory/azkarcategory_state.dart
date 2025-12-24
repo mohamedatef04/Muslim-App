@@ -10,3 +10,4 @@ class AzkarcategorySuccessState extends AzkarcategoryState {}
 class AzkarcategoryFailureState extends AzkarcategoryState {}
 
 class AzkarcategoryLoadingState extends AzkarcategoryState {}
+

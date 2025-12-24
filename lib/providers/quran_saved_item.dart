@@ -14,3 +14,4 @@ class QuranSavedItem extends ChangeNotifier {
     notifyListeners();
   }
 }
+

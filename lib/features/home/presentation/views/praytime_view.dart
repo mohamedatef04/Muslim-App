@@ -9,3 +9,4 @@ class PraytimeView extends StatelessWidget {
     return const PraytimeViewBody();
   }
 }
+

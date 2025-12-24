@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/features/ahadeeth/data/models/ahadeeth_category_model.dart';
 
 class AhadeethListViewItem extends StatelessWidget {
@@ -23,15 +22,13 @@ class AhadeethListViewItem extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: Column(
-            spacing: 4,
             children: [
               Row(
-                spacing: 15,
                 children: [
                   Container(
                     width: 36,
                     height: 36,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/muslim (1) 1.png'),
                           fit: BoxFit.fill),
@@ -41,11 +38,12 @@ class AhadeethListViewItem extends StatelessWidget {
                           Text(ahadeethCategoryModel.categoryNumber.toString()),
                     ),
                   ),
-                  Text(
-                    ahadeethCategoryModel.categoryEn,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.amiri(
-                      textStyle: TextStyle(
+                  const SizedBox(width: 15),
+                  Expanded(
+                    child: Text(
+                      ahadeethCategoryModel.categoryEn,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
                         fontSize: 19,
                         color: Colors.white,
                       ),
@@ -53,6 +51,7 @@ class AhadeethListViewItem extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 4),
               Padding(
                 padding: const EdgeInsets.only(right: 30),
                 child: SizedBox(
@@ -61,17 +60,15 @@ class AhadeethListViewItem extends StatelessWidget {
                     ahadeethCategoryModel.categoryAr,
                     textAlign: TextAlign.end,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.amiri(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffA44AFF),
-                      ),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xffA44AFF),
                     ),
                   ),
                 ),
               ),
-              Divider(),
+              const Divider(),
             ],
           ),
         ),

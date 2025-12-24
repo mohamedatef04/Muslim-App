@@ -22,3 +22,4 @@ class SurahdetailsCubit extends Cubit<SurahdetailsState> {
     }
   }
 }
+

@@ -18,3 +18,4 @@ class SurahInformationCubit extends Cubit<SurahInformationState> {
     }
   }
 }
+

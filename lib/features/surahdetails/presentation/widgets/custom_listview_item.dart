@@ -1,8 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 import 'package:quran_app/features/surahdetails/data/models/surah_details_model.dart';
 import 'package:quran_app/providers/quran_saved_item.dart';
 
@@ -21,66 +22,80 @@ class CustomSurahDetailsListViewItem extends StatefulWidget {
 class _CustomSurahDetailsListViewItemState
     extends State<CustomSurahDetailsListViewItem> {
   bool isPlaying = false;
-  bool isSaved = false;
   final player = AudioPlayer();
+
+  @override
+  void initState() {
+    super.initState();
+    player.onPlayerComplete.listen((event) {
+      if (mounted) {
+        setState(() {
+          isPlaying = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: EdgeInsets.symmetric(horizontal: 12.w),
         child: Column(
-          spacing: 18,
           children: [
             Container(
-              width: 327,
-              height: 47,
+              width: 327.w,
+              height: 47.h,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color(0xff121931),
+                borderRadius: BorderRadius.circular(15.r),
+                color: const Color(0xff121931),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: 27,
-                      height: 27,
+                      width: 27.w,
+                      height: 27.h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Color(0xffA44AFF),
+                        borderRadius: BorderRadius.circular(15.r),
+                        color: const Color(0xffA44AFF),
                       ),
                       child: Center(
                         child: Text(
                           widget.surahDetailsModel.ayahNumber.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12.sp),
                         ),
                       ),
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 8,
                     ),
                     IconButton(
                       onPressed: () async {
-                        await player.play(
-                          AssetSource(widget.surahDetailsModel.audio),
-                        );
+                        if (isPlaying) {
+                          await player.pause();
+                        } else {
+                          await player.play(
+                            AssetSource(widget.surahDetailsModel.audio),
+                          );
+                        }
+                        setState(() {
+                          isPlaying = !isPlaying;
+                        });
                       },
                       icon: Icon(
-                        Icons.play_arrow_outlined,
-                        size: 30,
-                        color: Color(0xffA44AFF),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () async {
-                        await player.stop();
-                      },
-                      icon: Icon(
-                        Icons.pause,
-                        size: 30,
-                        color: Color(0xffA44AFF),
+                        isPlaying ? Icons.pause : Icons.play_arrow_outlined,
+                        size: 30.r,
+                        color: const Color(0xffA44AFF),
                       ),
                     ),
                     IconButton(
@@ -90,7 +105,6 @@ class _CustomSurahDetailsListViewItemState
                                   listen: false);
 
                           bool exist = false;
-
                           var itemInSaved = quransavedItem.ayas;
                           for (var item in itemInSaved) {
                             if (item.arAyah ==
@@ -103,48 +117,45 @@ class _CustomSurahDetailsListViewItemState
                             QuickAlert.show(
                                 context: context,
                                 type: QuickAlertType.error,
-                                text: 'Already in your Saved');
+                                text: AppStrings.alreadyInSaved);
                           } else {
                             quransavedItem.addAyah(widget.surahDetailsModel);
-
                             QuickAlert.show(
                                 context: context,
                                 type: QuickAlertType.success,
-                                text: 'Item added');
+                                text: AppStrings.itemAdded);
                           }
                         },
                         icon: Icon(
                           Icons.bookmark_add,
-                          color: Color(0xffA44AFF),
+                          size: 24.r,
+                          color: const Color(0xffA44AFF),
                         )),
                   ],
                 ),
               ),
             ),
+            SizedBox(height: 18.h),
             SizedBox(
               width: double.infinity,
               child: Text(
                 widget.surahDetailsModel.arAyah,
                 textAlign: TextAlign.end,
-                style: GoogleFonts.amiri(
-                  textStyle:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
             ),
+            SizedBox(height: 18.h),
             SizedBox(
               width: double.infinity,
               child: Text(
                 widget.surahDetailsModel.enAyah,
-                style: GoogleFonts.amiri(
-                  textStyle: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xffA19CC5)),
-                ),
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xffA19CC5)),
               ),
             ),
-            Divider()
+            const Divider()
           ],
         ),
       ),

@@ -19,3 +19,4 @@ class SurahDetailsModel {
         audio: json['path']);
   }
 }
+

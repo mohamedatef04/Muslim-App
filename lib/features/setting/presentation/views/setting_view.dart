@@ -9,3 +9,4 @@ class SettingView extends StatelessWidget {
     return const SettingViewBody();
   }
 }
+

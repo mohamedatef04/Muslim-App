@@ -11,3 +11,4 @@ class QuranView extends StatelessWidget {
     return QuranViewBody();
   }
 }
+

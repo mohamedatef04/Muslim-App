@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quran_app/core/constants.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 import 'package:quran_app/features/search/data/cubit/search_cubit.dart';
 import 'package:quran_app/features/search/presentation/widgets/custom_search_textfield.dart';
 import 'package:quran_app/features/search/presentation/widgets/search_view_listview_item.dart';
@@ -26,37 +27,66 @@ class _SearchViewBodyState extends State<SearchViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
         backgroundColor: kPrimaryColor,
         title: Text(
-          'Search View',
-          style: GoogleFonts.amiri(
-            textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+          AppStrings.search,
+          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
         ),
       ),
       body: Column(
         children: [
           CustomSearchTextField(
-            onChanged: searchSura,
+            onChanged: (query) {
+              BlocProvider.of<SearchCubit>(context).searchSurahs(query);
+            },
           ),
           Expanded(
             child: BlocBuilder<SearchCubit, SearchState>(
               builder: (context, state) {
                 if (state is SearchSuccessState) {
+                  final searchCubit = BlocProvider.of<SearchCubit>(context);
+
+                  if (searchCubit.filteredSewars.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.search_off,
+                            size: 64.r,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(height: 16.h),
+                          Text(
+                            'لا توجد نتائج',
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
                   return ListView.builder(
-                    itemCount:
-                        BlocProvider.of<SearchCubit>(context).sewars.length,
+                    itemCount: searchCubit.filteredSewars.length,
                     itemBuilder: (context, index) {
                       return SearchViewListviewItem(
-                        surahModel:
-                            BlocProvider.of<SearchCubit>(context).sewars[index],
+                        surahModel: searchCubit.filteredSewars[index],
                       );
                     },
                   );
                 } else if (state is SearchFailureState) {
-                  return Center(child: Text('Oops There Was an Error'));
+                  return Center(child: Text(AppStrings.errorOccurred));
                 } else {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
               },
             ),
@@ -64,18 +94,5 @@ class _SearchViewBodyState extends State<SearchViewBody> {
         ],
       ),
     );
-  }
-
-  void searchSura(String query) {
-    final suggestions = BlocProvider.of<SearchCubit>(context).sewars.where(
-      (element) {
-        final suraText = element.arSurahName.toLowerCase();
-        final input = query.toLowerCase();
-        return suraText.contains(input);
-      },
-    ).toList();
-    setState(() {
-      BlocProvider.of<SearchCubit>(context).sewars = suggestions;
-    });
   }
 }

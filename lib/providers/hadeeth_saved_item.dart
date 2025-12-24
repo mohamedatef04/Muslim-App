@@ -14,3 +14,4 @@ class HadeethSavedItem extends ChangeNotifier {
     notifyListeners();
   }
 }
+

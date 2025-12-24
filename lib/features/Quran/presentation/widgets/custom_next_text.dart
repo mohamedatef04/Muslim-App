@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 
 class CustomNextText extends StatelessWidget {
   const CustomNextText({
@@ -9,13 +10,15 @@ class CustomNextText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Text(
-        'Your Way to janna',
-        style: GoogleFonts.amiri(
-          textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-        ),
+        AppStrings.wayToJanna,
+        style: TextStyle(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.bold,
+            color: const Color(0xffA19CC5)),
       ),
     );
   }
 }
+

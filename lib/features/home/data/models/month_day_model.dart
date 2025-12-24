@@ -35,3 +35,4 @@ class MonthDayModel {
       required this.maghribDate,
       required this.ishaDate});
 }
+

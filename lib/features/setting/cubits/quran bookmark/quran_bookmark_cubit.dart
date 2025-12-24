@@ -9,3 +9,4 @@ class QuranBookmarkCubit extends Cubit<QuranBookmarkState> {
   QuranBookmarkCubit() : super(QuranBookmarkInitialState());
   void addSura() {}
 }
+

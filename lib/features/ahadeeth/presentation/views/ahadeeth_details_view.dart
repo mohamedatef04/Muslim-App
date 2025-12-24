@@ -12,3 +12,4 @@ class AhadeethDetailsView extends StatelessWidget {
     );
   }
 }
+

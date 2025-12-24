@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 import 'package:quran_app/features/home/presentation/widgets/custom_colmn.dart';
 
 class CustomNavBar extends StatelessWidget {
@@ -10,41 +12,41 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Color.fromARGB(56, 135, 62, 213),
+          borderRadius: BorderRadius.circular(15.r),
+          color: const Color.fromARGB(56, 135, 62, 213),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w),
           child: Row(
-            spacing: 30,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CustomColmn(
                 image: 'assets/images/quran.png',
-                text: 'Quran',
+                text: AppStrings.quran,
                 onTap: () {
                   GoRouter.of(context).push('/QuranView');
                 },
               ),
               CustomColmn(
                 image: 'assets/images/prayer-mat.png',
-                text: 'Hadeeth',
+                text: AppStrings.hadeeth,
                 onTap: () {
                   GoRouter.of(context).push('/PraytimesView');
                 },
               ),
               CustomColmn(
                 image: 'assets/images/praying.png',
-                text: 'Azkar',
+                text: AppStrings.azkar,
                 onTap: () {
                   GoRouter.of(context).push('/AzkarView');
                 },
               ),
               CustomColmn(
                 image: 'assets/images/apps.png',
-                text: 'More',
+                text: AppStrings.settings,
                 onTap: () {
                   GoRouter.of(context).push('/SettingView');
                 },
@@ -56,3 +58,4 @@ class CustomNavBar extends StatelessWidget {
     );
   }
 }
+

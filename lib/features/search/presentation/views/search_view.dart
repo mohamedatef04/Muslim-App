@@ -12,3 +12,4 @@ class SearchView extends StatelessWidget {
     return SearchViewBody();
   }
 }
+

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quran_app/core/constants.dart';
+import 'package:quran_app/core/utils/app_strings.dart';
 import 'package:quran_app/features/ahadeeth/data/models/ahadeeth_category_model.dart';
 import 'package:quran_app/features/ahadeeth/presentation/widgets/ahadeeth_listview_item.dart';
 
 class AhadeethViewBody extends StatelessWidget {
   AhadeethViewBody({super.key});
 
-  final List<AhadeethCategoryModel> ahadeeth = [
+  final List<AhadeethCategoryModel> ahadeethList = [
     AhadeethCategoryModel(
         categoryNumber: 1,
         categoryEn: 'The Forty Hadith of Imam Nawawi',
@@ -56,19 +57,19 @@ class AhadeethViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kPrimaryColor,
         title: Text(
-          'Al-Ahadeeth - الاحاديث',
-          style: GoogleFonts.amiri(
-            textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-          ),
+          AppStrings.hadeeth,
+          style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: ahadeeth.length,
+        itemCount: ahadeethList.length,
         itemBuilder: (context, index) {
-          return AhadeethListViewItem(ahadeethCategoryModel: ahadeeth[index]);
+          return AhadeethListViewItem(
+              ahadeethCategoryModel: ahadeethList[index]);
         },
       ),
     );

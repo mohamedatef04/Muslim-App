@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/features/Quran/data/models/surah_model.dart';
 
 class SearchViewListviewItem extends StatelessWidget {
@@ -19,83 +19,80 @@ class SearchViewListviewItem extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          padding: EdgeInsets.symmetric(vertical: 12.h),
           child: Column(
-            spacing: 10,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: 36,
-                      height: 36,
-                      decoration: BoxDecoration(
+                      width: 36.w,
+                      height: 36.h,
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('assets/images/muslim (1) 1.png'),
                             fit: BoxFit.fill),
                       ),
                       child: Center(
-                        child: Text(surahModel.surahNumber.toString()),
+                        child: Text(
+                          surahModel.surahNumber.toString(),
+                          style: TextStyle(fontSize: 14.sp),
+                        ),
                       ),
                     ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          surahModel.enSurahName,
-                          style:
-                              TextStyle(fontSize: 16, color: Color(0xffFFFFFF)),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              '${surahModel.surahEnKind} - ',
-                              style: GoogleFonts.amiri(
-                                textStyle: TextStyle(
-                                  fontSize: 16,
+                    SizedBox(width: 8.w),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            surahModel.enSurahName,
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                color: const Color(0xffFFFFFF)),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                '${surahModel.surahEnKind} - ',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xffA19CC5),
+                                  color: const Color(0xffA19CC5),
                                 ),
                               ),
-                            ),
-                            Text(
-                              surahModel.surahArKind,
-                              style: GoogleFonts.amiri(
-                                textStyle: TextStyle(
-                                  fontSize: 16,
+                              Text(
+                                surahModel.surahArKind,
+                                style: TextStyle(
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xffA19CC5),
+                                  color: const Color(0xffA19CC5),
                                 ),
                               ),
-                            ),
-                          ],
-                        )
-                      ],
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    Spacer(
-                      flex: 8,
-                    ),
+                    SizedBox(width: 8.w),
                     Text(
                       surahModel.arSurahName,
-                      style: GoogleFonts.amiri(
-                        textStyle: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xffA44AFF),
-                        ),
+                      style: TextStyle(
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xffA44AFF),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(height: 10.h),
               Divider(
-                indent: 15,
-                endIndent: 15,
+                indent: 15.w,
+                endIndent: 15.w,
               ),
             ],
           ),
