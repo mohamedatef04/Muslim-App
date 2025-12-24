@@ -59,7 +59,7 @@ class SplashViewBody extends StatelessWidget {
             child: Center(
               child: GestureDetector(
                 onTap: () {
-                  GoRouter.of(context).push('/PraytimeView');
+                  GoRouter.of(context).go('/PraytimeView');
                   BlocProvider.of<MonthdaysCubit>(context).getMonthDays();
                 },
                 child: Container(
@@ -86,4 +86,3 @@ class SplashViewBody extends StatelessWidget {
     );
   }
 }
-
